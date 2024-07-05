@@ -1,0 +1,11 @@
+<launch>
+    <group ns="$(arg vehicle_name2)">
+        <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+        <param name="video_device" value="/dev/camera2" />
+        <param name="image_width" value="640" />
+        <param name="image_height" value="480" />
+        <param name="pixel_format" value="yuyv" />
+        <param name="camera_frame_id" value="usb_cam" />
+        <param name="io_method" value="mmap"/>
+    </group>
+</launch>

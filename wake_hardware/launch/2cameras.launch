@@ -1,0 +1,23 @@
+<launch>
+    <arg name="vehicle_name1" default="bluerov_down" />
+    <arg name="vehicle_name2" default="bluerov_up" />
+    <group ns="$(arg vehicle_name1)">
+        <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+            <param name="video_device" value="/dev/v4l/by-id/usb-H264_USB_Camera_H264_USB_Camera_2020032801-video-index0" />
+            <param name="image_width" value="640" />
+            <param name="image_height" value="480" />
+            <param name="pixel_format" value="yuyv" />
+            <param name="camera_frame_id" value="usb_cam" />
+            <param name="io_method" value="mmap"/>
+    </group>
+
+    <group ns="$(arg vehicle_name2)">
+        <include file="$(find usb_cam)/launch/usb_cam-test.launch"/>
+            <param name="video_device" value="/dev/v4l/by-id/usb-Sonix_Technology_Co.__Ltd._H264_USB_Camera_SN0001-video-index0" />
+            <param name="image_width" value="640" />
+            <param name="image_height" value="480" />
+            <param name="pixel_format" value="yuyv" />
+            <param name="camera_frame_id" value="usb_cam" />
+            <param name="io_method" value="mmap"/>
+    </group>
+</launch>
